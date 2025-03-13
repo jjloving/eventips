@@ -37,4 +37,31 @@ export async function signOut() {
   if (error) throw error;
 }
 
-export const auth = supabase.auth; 
+export const auth = supabase.auth;
+
+export function verifyToken(token: string) {
+  try {
+    // For Supabase, we don't need to manually verify the token
+    // as it's handled by the Supabase client
+    // This is just a placeholder function to maintain compatibility
+    return { userId: token };
+  } catch (error) {
+    throw new Error('Invalid token');
+  }
+}
+
+export async function getUserById(userId: string) {
+  try {
+    const { data, error } = await supabase
+      .from('users')
+      .select('*')
+      .eq('id', userId)
+      .single();
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error('Error getting user:', error);
+    return null;
+  }
+} 
