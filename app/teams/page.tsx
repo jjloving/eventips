@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FiUserPlus, FiMail, FiMoreVertical, FiTrash2 } from 'react-icons/fi';
+import { FiUserPlus, FiMail, FiTrash2 } from 'react-icons/fi';
 import Sidebar from '@/components/Sidebar';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
+import { FiPlus } from 'react-icons/fi';
 
 interface TeamMember {
   id: string;
